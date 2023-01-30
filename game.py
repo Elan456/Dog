@@ -10,13 +10,16 @@ class Game:
         self.surfaces = {"background": pygame.Surface((display_width, display_height), pygame.SRCALPHA),
                          "foreground": pygame.Surface((display_width, display_height), pygame.SRCALPHA)}
 
-    def draw_everything(self):
+    def clear_surfaces(self):
         self.gameDisplay.fill(BLACK)
         for s in self.surfaces.values():
             s.fill(BLACK)
-        self.surfaces["foreground"].blit(self.gameDisplay, (0, 0))
 
+    def draw_surfaces_onto_gameDisplay(self):
+        ss = [self.surfaces["background"], self.surfaces["foreground"]]
 
+        for s in ss:
+            self.gameDisplay.blit(s, (0, 0))
 
 
 class Camera:

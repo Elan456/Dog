@@ -31,15 +31,13 @@ def main():
         if keys[pygame.K_LEFT]:
             move_person[0] -= 1
 
-        if np.sum(move_person) > 0:
+        if move_person[0] != 0 or move_person[1] != 0:
             move_person /= np.linalg.norm(move_person)  # Normalizing
             person.update(move_person)
 
-        pygame.draw.circle(gameDisplay, (255 ,255, 255), (100, 100), 5)
-        pygame.display.update()
-
+        game.clear_surfaces()
         person.draw(game.surfaces["foreground"])
-        game.draw_everything()
-
+        game.draw_surfaces_onto_gameDisplay()
+        pygame.display.update()
 
 main()
