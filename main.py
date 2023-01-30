@@ -13,7 +13,7 @@ def main():
     clock = pygame.time.Clock()
     game = Game(gameDisplay, 500, 500)
     person = Person(np.array([100, 100], dtype="float64"))
-    dog = Dog(np.array([150, 200], dtype="float64"))
+    dog = Dog(np.array([150, 200], dtype="float64"), person)
     while True:
         clock.tick(60)
         keys = pygame.key.get_pressed()
@@ -36,6 +36,8 @@ def main():
         if move_person[0] != 0 or move_person[1] != 0:
             move_person /= np.linalg.norm(move_person)  # Normalizing
             person.update(game, move_person)
+
+        dog.update()
 
         game.clear_surfaces()
         person.draw(game.surfaces["foreground"])
