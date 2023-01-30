@@ -5,6 +5,8 @@ BLACK = (0, 0, 0, 0)
 
 class Game:
     def __init__(self, gameDisplay, display_width, display_height):
+        self.width = display_width
+        self.height = display_height
         self.gameDisplay = gameDisplay
         self.camera = Camera(display_width=display_width, display_height=display_height)
         self.surfaces = {"background": pygame.Surface((display_width, display_height), pygame.SRCALPHA),
