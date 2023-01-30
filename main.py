@@ -2,6 +2,7 @@ import pygame
 import numpy as np
 from game import *
 from person import Person
+from dog import Dog
 
 pygame.init()
 
@@ -12,6 +13,7 @@ def main():
     clock = pygame.time.Clock()
     game = Game(gameDisplay, 500, 500)
     person = Person(np.array([100, 100], dtype="float64"))
+    dog = Dog(np.array([150, 200], dtype="float64"))
     while True:
         clock.tick(60)
         keys = pygame.key.get_pressed()
@@ -37,6 +39,7 @@ def main():
 
         game.clear_surfaces()
         person.draw(game.surfaces["foreground"])
+        dog.draw(game.surfaces["foreground"])
         game.draw_surfaces_onto_gameDisplay()
         pygame.display.update()
 
