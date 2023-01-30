@@ -33,7 +33,7 @@ def main():
 
         if move_person[0] != 0 or move_person[1] != 0:
             move_person /= np.linalg.norm(move_person)  # Normalizing
-            person.update(move_person)
+            person.update(game, move_person)
 
         game.clear_surfaces()
         person.draw(game.surfaces["foreground"])
